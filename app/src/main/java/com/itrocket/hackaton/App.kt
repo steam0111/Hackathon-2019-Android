@@ -20,4 +20,17 @@ class App : Application() {
             Timber.plant(Timber.DebugTree())
         }
     }
+
+
+    companion object {
+        const val errorMsg = "В приложении произошла ошибка"
+
+        //valid fields
+        const val chooseUnivMsg = "Выбирите университет"
+        const val nameNotValidMsg = "Имя не может быть пустым"
+        const val secondNotValidMsg = "Фамилия не может быть пустым"
+        const val lastNameNotValidMsg = "Отчество не может быть пустым"
+        const val emailNotValidMsg = "Почта не может быть пустой"
+        const val passwordNotValidMsg = "Пароль не может быть пустым"
+    }
 }

@@ -8,4 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="OutLineEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="cornerRadius">@dimen/general_corner_radius_10</item>
+    </style>
+
+    <style name="MaterialEditText">
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="BtnBorder" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="cornerRadius">@dimen/general_corner_radius_10</item>
+    </style>
+
+    <style name="TitleTextView">
+           <item name="android:textColor">@color/black</item>
+           <item name="android:textSize">@dimen/font_size_20</item>
+    </style>
+
 </resources>

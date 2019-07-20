@@ -1,9 +1,11 @@
 package com.itrocket.hackaton.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.itrocket.hackaton.R
+import com.itrocket.hackaton.ui.common.OnBackPressedListener
 
 class AppActivity : AppCompatActivity() {
 
@@ -20,7 +22,7 @@ class AppActivity : AppCompatActivity() {
             val navInflater = navController.navInflater
             val graph = navInflater.inflate(R.navigation.nav_main)
 
-            graph.startDestination = R.id.testFragment
+            graph.startDestination = R.id.registrationFragment
 //            if (prefs.isFirstLaunch) {
 //                prefs.isFirstLaunch = false
 //                graph.startDestination = R.id.onBoardingFragment
@@ -32,6 +34,19 @@ class AppActivity : AppCompatActivity() {
 //                }
 //            }
             navController.graph = graph
+        }
+    }
+
+    override fun onBackPressed() {
+        val currentFragment = navHost?.childFragmentManager?.fragments?.get(0)
+        val controller = Navigation.findNavController(this, R.id.fragment_main_nav_host)
+
+        if (currentFragment is OnBackPressedListener) {
+            if (!(currentFragment as OnBackPressedListener).onBackPressed()) {
+                super.onBackPressed()
+            }
+        } else if (!controller.popBackStack()) {
+            super.onBackPressed()
         }
     }
 }

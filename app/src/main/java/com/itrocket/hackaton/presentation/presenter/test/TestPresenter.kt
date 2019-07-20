@@ -1,19 +1,15 @@
 package com.itrocket.hackaton.presentation.presenter.test
 
 import com.appunite.websocket.rx.RxWebSockets
-import com.appunite.websocket.rx.messages.RxEvent
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.itrocket.hackaton.model.repository.ItRocketRepository
-
 import com.itrocket.hackaton.presentation.view.test.TestView
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import timber.log.Timber
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import org.reactivestreams.Subscription
-import rx.functions.Action1
 
 
 @InjectViewState
@@ -22,14 +18,6 @@ class TestPresenter() : MvpPresenter<TestView>(), KoinComponent {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
-        itRocketRepository
-            .getTestModel()
-            .subscribe({
-                Timber.d("")
-            }, {
-                Timber.d("")
-            })
 
         val request = Request.Builder()
             .get()

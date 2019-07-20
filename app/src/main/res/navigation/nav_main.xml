@@ -2,9 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_main" app:startDestination="@id/testFragment"
-            tools:ignore="UnusedNavigation">
+            android:id="@+id/nav_main"
+            tools:ignore="UnusedNavigation" app:startDestination="@id/registrationFragment">
 
-    <fragment android:id="@+id/testFragment" android:name="com.itrocket.hackaton.ui.fragment.test.TestFragment"
-              android:label="TestFragment"/>
+    <fragment android:id="@+id/registrationFragment"
+              android:name="com.itrocket.hackaton.ui.fragment.auth.RegistrationFragment"
+              android:label="RegistrationFragment">
+        <action android:id="@+id/action_registrationFragment_to_mainFragment" app:destination="@id/mainFragment"
+                app:launchSingleTop="true" app:popUpTo="@+id/registrationFragment"/>
+    </fragment>
+    <fragment android:id="@+id/mainFragment" android:name="com.itrocket.hackaton.ui.fragment.home.MainFragment"
+              android:label="MainFragment"/>
 </navigation>

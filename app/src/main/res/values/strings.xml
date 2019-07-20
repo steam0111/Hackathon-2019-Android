@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Hackaton</string>
+    <string name="name">Имя</string>
+    <string name="secondname">Фамилия</string>
+    <string name="lastname">Отчество</string>
+    <string name="registration">Регистрация</string>
+    <string name="password">Пароль</string>
+    <string name="choose_university">Выбирите университет</string>
+    <string name="email">Электронная почта</string>
 </resources>

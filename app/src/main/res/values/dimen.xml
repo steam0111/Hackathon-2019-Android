@@ -20,7 +20,9 @@
     <dimen name="text_size_event_item_title">16dp</dimen>
     <dimen name="text_size_event_item_time">14dp</dimen>
     <dimen name="size_toggle_view">30dp</dimen>
-    <dimen name="btn_corner_radius">10dp</dimen>
+
+    <dimen name="general_corner_radius_10">10dp</dimen>
+    <dimen name="general_corner_radius_6">6dp</dimen>
 
     <dimen name="font_size_9">9sp</dimen>
     <dimen name="font_size_10">10sp</dimen>

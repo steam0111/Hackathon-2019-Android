@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.androidnavigation.MainActivity">
+
+
+    <item
+            android:id = "@+id/feedFragment"
+            android:title="projects"
+            android:icon="@drawable/ic_work"
+            android:orderInCategory = "100"
+    />
+</menu>

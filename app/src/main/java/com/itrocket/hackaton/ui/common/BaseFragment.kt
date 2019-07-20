@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.arellomobile.mvp.BaseMvpView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.google.android.material.snackbar.Snackbar
 import com.itrocket.hackaton.extension.gone
 import com.itrocket.hackaton.extension.show
-import com.readystatesoftware.chuck.internal.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_app.*
 
 abstract class BaseFragment : MvpAppCompatFragment(), BaseMvpView {
@@ -46,6 +46,6 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseMvpView {
         hideProgressBar()
     }
 
-    private fun Fragment.showProgressBar() = (activity as MainActivity).viewProgressBar.show()
-    private fun Fragment.hideProgressBar() = (activity as MainActivity).viewProgressBar.gone()
+    private fun Fragment.showProgressBar() = (activity as AppCompatActivity).viewProgressBar.show()
+    private fun Fragment.hideProgressBar() = (activity as AppCompatActivity).viewProgressBar.gone()
 }
