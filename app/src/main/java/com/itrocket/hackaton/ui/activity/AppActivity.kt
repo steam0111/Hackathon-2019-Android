@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.itrocket.hackaton.R
+import com.itrocket.hackaton.model.data.storage.Prefs
 import com.itrocket.hackaton.ui.common.OnBackPressedListener
+import org.koin.android.ext.android.inject
+import org.koin.core.KoinComponent
 
-class AppActivity : AppCompatActivity() {
+class AppActivity : AppCompatActivity(), KoinComponent {
 
     var navHost: NavHostFragment? = null
+    val prefs : Prefs by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +26,12 @@ class AppActivity : AppCompatActivity() {
             val navInflater = navController.navInflater
             val graph = navInflater.inflate(R.navigation.nav_main)
 
-            graph.startDestination = R.id.registrationFragment
-//            if (prefs.isFirstLaunch) {
-//                prefs.isFirstLaunch = false
-//                graph.startDestination = R.id.onBoardingFragment
-//            } else {
-//                if (prefs.accessToken.isNullOrEmpty()) {
-//                    graph.startDestination = R.id.loginFragment
-//                } else {
-//                    graph.startDestination = R.id.homeFragment
-//                }
-//            }
+            graph.startDestination = R.id.loginFragment
+                if (prefs.accessToken.isNullOrEmpty()) {
+                    graph.startDestination = R.id.loginFragment
+                } else {
+                    graph.startDestination = R.id.mainFragment
+                }
             navController.graph = graph
         }
     }

@@ -32,7 +32,7 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseMvpView {
 
     override fun showMessage(message: String) {
         activity?.let {
-            Snackbar.make(it.findViewById(android.R.id.content), message, 3000)
+            Snackbar.make(it.findViewById(android.R.id.content), message, 2000)
                 .setTextColor(Color.WHITE)
                 .show()
         }

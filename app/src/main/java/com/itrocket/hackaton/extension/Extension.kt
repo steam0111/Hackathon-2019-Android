@@ -21,6 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.itrocket.hackaton.R
+import org.json.JSONObject
+import retrofit2.HttpException
 
 
 fun Resources
@@ -85,4 +87,24 @@ fun EditText.onTextChange (callBack : (String) -> Unit) {
         }
 
     })
+}
+
+fun Throwable.throwableTryToGetErrorMsg(
+    onGetMsg : (String) -> Unit,
+    onNoMsg : () -> Unit
+) {
+    return if (this is HttpException) {
+        try {
+            val msg = this.response()?.errorBody()?.string()
+            val mainErrorObject = JSONObject(msg)
+            val arrayOfErrors = mainErrorObject.getJSONArray("errors")
+            val error = arrayOfErrors[0]
+            val msgError = JSONObject(error.toString()).getString("message")
+            onGetMsg(msgError)
+        } catch (e : Throwable) {
+            onNoMsg()
+        }
+    } else {
+        onNoMsg()
+    }
 }

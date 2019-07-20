@@ -27,6 +27,13 @@ interface ItRocketApi {
         @Field("id_university") universityId : Int
     ) : Single<Token>
 
+    @POST("${API_PATH}student/login")
+    @FormUrlEncoded
+    fun studentLogin(
+        @Field("email") email : String,
+        @Field("password") password : String
+    ) : Single<Token>
+
     @POST("${API_PATH}get-universities")
     fun getUniversity() : Single<List<University>>
 }

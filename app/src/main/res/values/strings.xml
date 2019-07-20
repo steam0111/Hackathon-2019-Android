@@ -7,4 +7,6 @@
     <string name="password">Пароль</string>
     <string name="choose_university">Выбирите университет</string>
     <string name="email">Электронная почта</string>
+    <string name="login">Авторизация</string>
+    <string name="no_account">Нет аккаунта? Зарегистрируйся!</string>
 </resources>

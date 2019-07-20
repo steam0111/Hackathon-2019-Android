@@ -35,6 +35,11 @@ class RegistrationFragment : BaseFragment(), RegistrationView {
                 etPassword.text.toString()
             )
         }
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
+        toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onShowUniversities(names: List<String>) {

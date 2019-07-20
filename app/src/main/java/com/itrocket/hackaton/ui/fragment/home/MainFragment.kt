@@ -22,6 +22,6 @@ class MainFragment : BaseFragment(), MainView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showMessage("Успешная регистрация")
+        showMessage("У вас есть токен")
     }
 }

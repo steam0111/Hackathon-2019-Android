@@ -2,10 +2,14 @@ package com.itrocket.hackaton.model.repository
 
 import com.itrocket.hackaton.entity.auth.RegRequest
 import com.itrocket.hackaton.model.data.server.ItRocketApi
+import com.itrocket.hackaton.model.data.storage.Prefs
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ItRocketRepository (private val itRocketApi: ItRocketApi) {
+class ItRocketRepository (
+    private val itRocketApi: ItRocketApi,
+    private val prefs: Prefs
+) {
 
       fun getUniversity() =
           itRocketApi
@@ -25,4 +29,19 @@ class ItRocketRepository (private val itRocketApi: ItRocketApi) {
                       regRequest.universityId)
                   .subscribeOn(Schedulers.io())
                   .observeOn(AndroidSchedulers.mainThread())
+
+      fun loginStudent(
+          email : String,
+          password : String
+      ) =
+          itRocketApi
+              .studentLogin(
+                  email,
+                  password)
+              .subscribeOn(Schedulers.io())
+              .observeOn(AndroidSchedulers.mainThread())
+              .doOnSuccess {
+                  prefs.accessToken = it.token
+              }
+
 }

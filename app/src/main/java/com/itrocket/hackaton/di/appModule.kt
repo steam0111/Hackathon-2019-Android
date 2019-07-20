@@ -2,19 +2,21 @@ package com.itrocket.hackaton.di
 
 import com.itrocket.hackaton.BuildConfig
 import com.itrocket.hackaton.model.data.server.ItRocketApi
+import com.itrocket.hackaton.model.data.storage.Prefs
 import com.itrocket.hackaton.model.repository.ItRocketRepository
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 
 val appModule = module {
     single{ provideDefaultOkhttpClient() }
     single{ provideRetrofit(get()) }
     single{ provideItRocketService(get()) }
-    single{ ItRocketRepository(get()) }
+    single{ ItRocketRepository(get(), get()) }
+    single { Prefs(androidContext()) }
 }
 
 fun provideDefaultOkhttpClient(): OkHttpClient {
