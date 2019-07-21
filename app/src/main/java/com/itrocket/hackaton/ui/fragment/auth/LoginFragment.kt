@@ -5,6 +5,7 @@ import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.itrocket.hackaton.R
 import com.itrocket.hackaton.extension.findNavController
+import com.itrocket.hackaton.extension.hideKeyboard
 import com.itrocket.hackaton.presentation.presenter.auth.LoginPresenter
 import com.itrocket.hackaton.presentation.view.auth.LoginView
 import com.itrocket.hackaton.ui.common.BaseFragment
@@ -29,6 +30,8 @@ class LoginFragment : BaseFragment(), LoginView {
                 etEmail.text.toString(),
                 etPassword.text.toString()
             )
+
+            activity?.hideKeyboard()
         }
 
         tvReg.setOnClickListener {

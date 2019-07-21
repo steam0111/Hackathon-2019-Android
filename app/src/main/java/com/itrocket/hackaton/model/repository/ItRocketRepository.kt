@@ -27,6 +27,7 @@ class ItRocketRepository (
                       regRequest.lastName,
                       regRequest.password,
                       regRequest.universityId)
+                  .doAfterSuccess { prefs.accessToken = it.token }
                   .subscribeOn(Schedulers.io())
                   .observeOn(AndroidSchedulers.mainThread())
 
@@ -43,5 +44,23 @@ class ItRocketRepository (
               .doOnSuccess {
                   prefs.accessToken = it.token
               }
+
+    fun getProject() =
+        itRocketApi
+            .getProjects(prefs.accessToken ?: "")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    fun sendReq(id : String) =
+        itRocketApi
+            .sendRequest(prefs.accessToken ?: "", id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    fun getTrends() =
+        itRocketApi
+            .getTrends()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 
 }

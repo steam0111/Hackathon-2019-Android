@@ -72,14 +72,16 @@
                 app:layout_constraintEnd_toEndOf="@+id/tilFirstname"
                 app:layout_constraintStart_toStartOf="@+id/tilFirstname"/>
 
-        <TextView android:id="@+id/tvReg"
-                  android:layout_width="wrap_content"
+        <Button   style="@style/BtnBorder"
+                  android:id="@+id/tvReg"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:textSize="14sp"
-                  android:layout_marginTop="10dp"
+                  app:layout_constraintEnd_toEndOf="@+id/tilFirstname"
+                  app:layout_constraintStart_toStartOf="@+id/tilFirstname"
                   android:layout_gravity="center"
                   android:textColor="@color/black"
-                  android:text="@string/no_account"
+                  android:text="Зарегистрироваться"
              />
     </LinearLayout>
 </ScrollView>

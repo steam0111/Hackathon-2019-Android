@@ -13,7 +13,7 @@ import org.koin.core.KoinComponent
 class AppActivity : AppCompatActivity(), KoinComponent {
 
     var navHost: NavHostFragment? = null
-    val prefs : Prefs by inject()
+    val prefs: Prefs by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +26,11 @@ class AppActivity : AppCompatActivity(), KoinComponent {
             val navInflater = navController.navInflater
             val graph = navInflater.inflate(R.navigation.nav_main)
 
-            graph.startDestination = R.id.loginFragment
-                if (prefs.accessToken.isNullOrEmpty()) {
-                    graph.startDestination = R.id.loginFragment
-                } else {
-                    graph.startDestination = R.id.mainFragment
-                }
+            if (prefs.accessToken.isNullOrEmpty()) {
+                graph.startDestination = R.id.loginFragment
+            } else {
+                graph.startDestination = R.id.mainFragment
+            }
             navController.graph = graph
         }
     }

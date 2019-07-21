@@ -77,4 +77,5 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    implementation 'com.google.android:flexbox:1.1.0'
 }

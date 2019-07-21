@@ -2,11 +2,17 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.androidnavigation.MainActivity">
 
-
     <item
-            android:id = "@+id/feedFragment"
+            android:id="@+id/projectsFragment"
             android:title="projects"
             android:icon="@drawable/ic_work"
-            android:orderInCategory = "100"
+            android:orderInCategory="100"
+    />
+
+    <item
+            android:id="@+id/trendsFragment"
+            android:title="trends"
+            android:icon="@drawable/ic_trending_up_black_24dp"
+            android:orderInCategory="100"
     />
 </menu>

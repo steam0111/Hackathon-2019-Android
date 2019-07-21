@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_home" app:startDestination="@id/projectsFragment">
+
+    <fragment android:id="@+id/projectsFragment"
+              android:name="com.itrocket.hackaton.ui.fragment.home.ProjectsFragment"
+              android:label="ProjectsFragment">
+        <action android:id="@+id/action_projectsFragment_to_projectFragment" app:destination="@id/projectFragment"/>
+    </fragment>
+    <fragment android:id="@+id/projectFragment" android:name="com.itrocket.hackaton.ui.fragment.home.ProjectFragment"
+              android:label="ProjectFragment"/>
+    <fragment android:id="@+id/trendsFragment" android:name="com.itrocket.hackaton.ui.fragment.home.TrendsFragment"
+              android:label="TrendsFragment"/>
+</navigation>
